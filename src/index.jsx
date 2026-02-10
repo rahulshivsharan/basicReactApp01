@@ -6,6 +6,9 @@ import {Link, Routes, Route, BrowserRouter} from "react-router";
 import Welcome from "./Welcome.jsx";
 import SimpleAddCount from "./CountEx01.jsx";
 import AddCountOnEvent from "./CountEx02.jsx";
+import DemoExample03 from "./Example03.jsx";
+import DemoExample04 from "./Example04.jsx";
+import ParentApp01 from "./passOnToChildEx01/ParentApp01.jsx";
 
 export default function App(){
 	console.log("App rendering");
@@ -32,6 +35,21 @@ export default function App(){
 											<Link to="/add2">Add on click 2</Link>
 										</td>
 									</tr>
+									<tr>										
+										<td>
+											<Link to="/timerone">Click for timer 1</Link>
+										</td>
+									</tr>
+									<tr>										
+										<td>
+											<Link to="/timertwo">Click for timer 2</Link>
+										</td>
+									</tr>
+									<tr>										
+										<td>
+											<Link to="/parent01">Click Parent App 01</Link>
+										</td>
+									</tr>
 								</table>							
 							</div>
 						</div>						
@@ -40,7 +58,10 @@ export default function App(){
 						<Routes>
 							<Route path="/" element={<Welcome />} />
 							<Route path="/add1" element={<SimpleAddCount />} />
-							<Route path="/add2" element={<AddCountOnEvent />} />							
+							<Route path="/add2" element={<AddCountOnEvent />} />
+							<Route path="/timerone" element={<DemoExample03 />} />
+							<Route path="/timertwo" element={<DemoExample04 />} />
+							<Route path="/parent01" element={<ParentApp01 />} />
 						</Routes>
 					</div>
 				</div>

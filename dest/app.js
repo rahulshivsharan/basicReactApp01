@@ -59256,6 +59256,114 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = DemoExample03;
+var _react = _interopRequireWildcard(require("react"));
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function DemoExample03() {
+  var _useState = (0, _react.useState)(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    count = _useState2[0],
+    setCount = _useState2[1];
+  var _useState3 = (0, _react.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    flag = _useState4[0],
+    setFlag = _useState4[1];
+
+  /**
+   * The below useEffect block is called once 
+   * on the render of DemoExample03 component
+   * 
+   * the interval is set on which in turn 
+   * sets flag true. 
+   * 
+   **/
+  (0, _react.useEffect)(function () {
+    console.log("Calling useEffect " + new Date());
+    var oneSec = 1000;
+    setInterval(function () {
+      console.log("Hi " + new Date());
+      setFlag(true);
+    }, oneSec);
+  }, []);
+
+  /**
+   * the below useEffect block is called when
+   * new value of flag is set, in the block
+   * we set the count to new value.
+   **/
+  (0, _react.useEffect)(function () {
+    console.log("Calling useEffect for flag " + new Date());
+    if (flag === true) {
+      setCount(count + 1);
+      setFlag(false);
+    }
+  }, [flag]);
+  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("h3", null, count), "\xA0", /*#__PURE__*/_react["default"].createElement("button", {
+    type: "button",
+    className: "btn btn-primary",
+    onClick: function onClick() {
+      setCount(0);
+    }
+  }, "Reset")));
+}
+
+},{"react":14}],23:[function(require,module,exports){
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = DemoExample04;
+var _react = _interopRequireWildcard(require("react"));
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function DemoExample04() {
+  var _useState = (0, _react.useState)(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    count = _useState2[0],
+    setCount = _useState2[1];
+  (0, _react.useEffect)(function () {
+    console.log("Calling useEffect " + new Date());
+    var oneSec = 1000;
+    var intervalId = setInterval(function () {
+      console.log("Hi " + new Date());
+      setCount(function (prevCount) {
+        return prevCount + 1;
+      });
+    }, oneSec);
+    return function () {
+      console.log("clearing interval having id " + intervalId);
+      clearInterval(intervalId);
+    };
+  }, []);
+  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("h3", null, count), "\xA0", /*#__PURE__*/_react["default"].createElement("button", {
+    type: "button",
+    className: "btn btn-primary",
+    onClick: function onClick() {
+      setCount(0);
+    }
+  }, "Reset")));
+}
+
+},{"react":14}],24:[function(require,module,exports){
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports["default"] = Welcome;
 var _react = _interopRequireWildcard(require("react"));
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
@@ -59274,7 +59382,7 @@ function Welcome() {
   return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("header", null, /*#__PURE__*/_react["default"].createElement("h1", null, "Welcome to react")), /*#__PURE__*/_react["default"].createElement("h2", null, welcomeMsg));
 }
 
-},{"react":14}],23:[function(require,module,exports){
+},{"react":14}],25:[function(require,module,exports){
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59289,6 +59397,9 @@ var _reactRouter = require("react-router");
 var _Welcome = _interopRequireDefault(require("./Welcome.jsx"));
 var _CountEx = _interopRequireDefault(require("./CountEx01.jsx"));
 var _CountEx2 = _interopRequireDefault(require("./CountEx02.jsx"));
+var _Example = _interopRequireDefault(require("./Example03.jsx"));
+var _Example2 = _interopRequireDefault(require("./Example04.jsx"));
+var _ParentApp = _interopRequireDefault(require("./passOnToChildEx01/ParentApp01.jsx"));
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function App() {
@@ -59311,7 +59422,13 @@ function App() {
     to: "/add1"
   }, "Add on click 1"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
     to: "/add2"
-  }, "Add on click 2"))))))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Add on click 2"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
+    to: "/timerone"
+  }, "Click for timer 1"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
+    to: "/timertwo"
+  }, "Click for timer 2"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
+    to: "/parent01"
+  }, "Click Parent App 01"))))))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "col-md-10"
   }, /*#__PURE__*/_react["default"].createElement(_reactRouter.Routes, null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
     path: "/",
@@ -59322,6 +59439,15 @@ function App() {
   }), /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
     path: "/add2",
     element: /*#__PURE__*/_react["default"].createElement(_CountEx2["default"], null)
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
+    path: "/timerone",
+    element: /*#__PURE__*/_react["default"].createElement(_Example["default"], null)
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
+    path: "/timertwo",
+    element: /*#__PURE__*/_react["default"].createElement(_Example2["default"], null)
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
+    path: "/parent01",
+    element: /*#__PURE__*/_react["default"].createElement(_ParentApp["default"], null)
   }))))));
 }
 (0, _jquery["default"])(document).ready(function () {
@@ -59331,4 +59457,77 @@ function App() {
   root.render(/*#__PURE__*/_react["default"].createElement(App, null));
 });
 
-},{"./CountEx01.jsx":20,"./CountEx02.jsx":21,"./Welcome.jsx":22,"jquery":1,"react":14,"react-dom/client":5,"react-router":10}]},{},[23]);
+},{"./CountEx01.jsx":20,"./CountEx02.jsx":21,"./Example03.jsx":22,"./Example04.jsx":23,"./Welcome.jsx":24,"./passOnToChildEx01/ParentApp01.jsx":27,"jquery":1,"react":14,"react-dom/client":5,"react-router":10}],26:[function(require,module,exports){
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = ChildApp01;
+var _react = _interopRequireWildcard(require("react"));
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function ChildApp01(_ref) {
+  var getColor = _ref.getColor;
+  var _useState = (0, _react.useState)(""),
+    _useState2 = _slicedToArray(_useState, 2),
+    activeColor = _useState2[0],
+    setActiveColor = _useState2[1];
+  var handleChange = function handleChange(e) {
+    var value = e.target.value;
+    setActiveColor(value);
+    getColor(value);
+  };
+  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    onChange: handleChange,
+    value: activeColor
+  }));
+}
+
+},{"react":14}],27:[function(require,module,exports){
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = ParentApp01;
+var _react = _interopRequireWildcard(require("react"));
+var _ChildApp = _interopRequireDefault(require("./ChildApp01.jsx"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function ParentApp01() {
+  var _useState = (0, _react.useState)(undefined),
+    _useState2 = _slicedToArray(_useState, 2),
+    UIColor = _useState2[0],
+    setUIColor = _useState2[1];
+  var getColor = function getColor(color) {
+    setUIColor(color);
+  };
+  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "jumbotron"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "well",
+    style: {
+      background: "".concat(UIColor)
+    }
+  }, /*#__PURE__*/_react["default"].createElement("h1", null, "Hi Parent")), /*#__PURE__*/_react["default"].createElement(_ChildApp["default"], {
+    getColor: getColor
+  })));
+}
+
+},{"./ChildApp01.jsx":26,"react":14}]},{},[25]);
