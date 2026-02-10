@@ -9,6 +9,7 @@ import AddCountOnEvent from "./CountEx02.jsx";
 import DemoExample03 from "./Example03.jsx";
 import DemoExample04 from "./Example04.jsx";
 import ParentApp01 from "./passOnToChildEx01/ParentApp01.jsx";
+import ParentComp02 from "./passOneValueToComponentEx02/ParentComponent02.jsx";
 
 export default function App(){
 	console.log("App rendering");
@@ -50,6 +51,11 @@ export default function App(){
 											<Link to="/parent01">Click Parent App 01</Link>
 										</td>
 									</tr>
+									<tr>										
+										<td>
+											<Link to="/parent02">Click Parent App 02</Link>
+										</td>
+									</tr>
 								</table>							
 							</div>
 						</div>						
@@ -62,6 +68,7 @@ export default function App(){
 							<Route path="/timerone" element={<DemoExample03 />} />
 							<Route path="/timertwo" element={<DemoExample04 />} />
 							<Route path="/parent01" element={<ParentApp01 />} />
+							<Route path="/parent02" element={<ParentComp02 />} />
 						</Routes>
 					</div>
 				</div>
