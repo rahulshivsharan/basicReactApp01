@@ -59400,6 +59400,125 @@ function Welcome() {
 }
 
 },{"react":14}],25:[function(require,module,exports){
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _react = _interopRequireWildcard(require("react"));
+var _withMovieData = _interopRequireDefault(require("./withMovieData.jsx"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
+var MovieList = MovieListFunc;
+var _default = exports["default"] = (0, _withMovieData["default"])(MovieList);
+function MovieListFunc(_ref) {
+  var movies = _ref.movies,
+    loading = _ref.loading,
+    error = _ref.error;
+  if (loading === true) {
+    return /*#__PURE__*/_react["default"].createElement("p", null, " Loading...");
+  }
+  if (error !== undefined) {
+    return /*#__PURE__*/_react["default"].createElement("p", null, " Error: ", error.message);
+  }
+  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("table", {
+    className: "table table-bordered"
+  }, /*#__PURE__*/_react["default"].createElement("thead", null, /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("th", null, "Sr No"), /*#__PURE__*/_react["default"].createElement("th", null, "Movie Name"), /*#__PURE__*/_react["default"].createElement("th", null, "Type"), /*#__PURE__*/_react["default"].createElement("th", null, "Genre"), /*#__PURE__*/_react["default"].createElement("th", null, "Released Date"), /*#__PURE__*/_react["default"].createElement("th", null, "Poster"))), /*#__PURE__*/_react["default"].createElement("tbody", null, movies.map(function (movieObj) {
+    var imageUrl = movieObj["primaryImage"];
+    var movieCaption = movieObj["originalTitle"];
+    var movieId = movieObj["id"];
+    var movieTitle = movieObj["originalTitle"];
+    var releasedDate = movieObj["releaseDate"];
+    var movieType = movieObj["type"];
+    var movieGenre = movieObj["genres"] !== undefined && movieObj["genres"] !== null ? movieObj["genres"][0] : "N/A";
+    return /*#__PURE__*/_react["default"].createElement("tr", {
+      key: movieId
+    }, /*#__PURE__*/_react["default"].createElement("td", null, movieId), /*#__PURE__*/_react["default"].createElement("td", null, movieTitle), /*#__PURE__*/_react["default"].createElement("td", null, movieType), /*#__PURE__*/_react["default"].createElement("td", null, movieGenre), /*#__PURE__*/_react["default"].createElement("td", null, releasedDate), /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement("img", {
+      src: imageUrl,
+      alt: movieCaption,
+      height: "290px",
+      width: "300px"
+    })));
+  }))));
+}
+;
+
+},{"./withMovieData.jsx":26,"react":14}],26:[function(require,module,exports){
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _react = _interopRequireWildcard(require("react"));
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+var withMovieData = withMovieDataFn;
+var _default = exports["default"] = withMovieData;
+function withMovieDataFn(WrapperComponent) {
+  var MovieDataComponent = MovieDataComponentFunc;
+  return MovieDataComponent;
+  function MovieDataComponentFunc(props) {
+    var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      movies = _useState2[0],
+      setMovies = _useState2[1];
+    var _useState3 = (0, _react.useState)(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loading = _useState4[0],
+      setLoading = _useState4[1];
+    var _useState5 = (0, _react.useState)(undefined),
+      _useState6 = _slicedToArray(_useState5, 2),
+      error = _useState6[0],
+      setError = _useState6[1];
+    var requestConfig = {
+      "headers": {
+        "x-rapidapi-host": "imdb236.p.rapidapi.com",
+        "x-rapidapi-key": "94afd7eb28mshe44cffb31930cb6p14b211jsn7b2c8149e2ec"
+      }
+    };
+    var date = new Date();
+    var url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete=sam&type=movie&rows=25&sortOrder=ASC&sortField=id&time=" + date.getTime();
+    (0, _react.useEffect)(function () {
+      $.ajax(_objectSpread(_objectSpread({}, requestConfig), {}, {
+        "url": url,
+        "type": "GET",
+        "success": function success(data) {
+          var movieList = data["results"];
+          setMovies(movieList);
+          setLoading(false);
+        },
+        "error": function error(xhr, status, _error) {
+          setError(_error);
+          setLoading(false);
+        }
+      }));
+    }, []);
+    return /*#__PURE__*/_react["default"].createElement(WrapperComponent, _extends({}, props, {
+      movies: movies,
+      loading: loading,
+      error: error
+    }));
+  }
+  ;
+}
+;
+
+},{"react":14}],27:[function(require,module,exports){
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59420,6 +59539,7 @@ var _ParentApp = _interopRequireDefault(require("./passOnToChildEx01/ParentApp01
 var _ParentComponent = _interopRequireDefault(require("./passOneValueToComponentEx02/ParentComponent02.jsx"));
 var _ClickComponent = _interopRequireDefault(require("./reducer01/ClickComponent01.jsx"));
 var _PlayerScore = _interopRequireDefault(require("./useReducer02/PlayerScore.jsx"));
+var _MovieList = _interopRequireDefault(require("./hoc01/MovieList.jsx"));
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function App() {
@@ -59454,7 +59574,9 @@ function App() {
     to: "/reducerapp01"
   }, "Reducer App 01"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
     to: "/reducerapp02"
-  }, "Reducer App 02"))))))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Reducer App 02"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
+    to: "/hoc01"
+  }, "Load Movies - HOC 1"))))))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "col-md-10"
   }, /*#__PURE__*/_react["default"].createElement(_reactRouter.Routes, null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
     path: "/",
@@ -59483,6 +59605,9 @@ function App() {
   }), /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
     path: "/reducerapp02",
     element: /*#__PURE__*/_react["default"].createElement(_PlayerScore["default"], null)
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
+    path: "/hoc01",
+    element: /*#__PURE__*/_react["default"].createElement(_MovieList["default"], null)
   }))))));
 }
 (0, _jquery["default"])(document).ready(function () {
@@ -59492,7 +59617,7 @@ function App() {
   root.render(/*#__PURE__*/_react["default"].createElement(App, null));
 });
 
-},{"./CountEx01.jsx":20,"./CountEx02.jsx":21,"./Example03.jsx":22,"./Example04.jsx":23,"./Welcome.jsx":24,"./passOnToChildEx01/ParentApp01.jsx":27,"./passOneValueToComponentEx02/ParentComponent02.jsx":29,"./reducer01/ClickComponent01.jsx":30,"./useReducer02/PlayerScore.jsx":31,"jquery":1,"react":14,"react-dom/client":5,"react-router":10}],26:[function(require,module,exports){
+},{"./CountEx01.jsx":20,"./CountEx02.jsx":21,"./Example03.jsx":22,"./Example04.jsx":23,"./Welcome.jsx":24,"./hoc01/MovieList.jsx":25,"./passOnToChildEx01/ParentApp01.jsx":29,"./passOneValueToComponentEx02/ParentComponent02.jsx":31,"./reducer01/ClickComponent01.jsx":32,"./useReducer02/PlayerScore.jsx":33,"jquery":1,"react":14,"react-dom/client":5,"react-router":10}],28:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59527,7 +59652,7 @@ function ChildApp01(_ref) {
   }));
 }
 
-},{"react":14}],27:[function(require,module,exports){
+},{"react":14}],29:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59565,7 +59690,7 @@ function ParentApp01() {
   })));
 }
 
-},{"./ChildApp01.jsx":26,"react":14}],28:[function(require,module,exports){
+},{"./ChildApp01.jsx":28,"react":14}],30:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59611,7 +59736,7 @@ function ChildComp02(_ref) {
   })));
 }
 
-},{"react":14}],29:[function(require,module,exports){
+},{"react":14}],31:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59646,7 +59771,7 @@ function ParentComp02() {
   }));
 }
 
-},{"./ChildComponent02.jsx":28,"react":14}],30:[function(require,module,exports){
+},{"./ChildComponent02.jsx":30,"react":14}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -59724,7 +59849,7 @@ function ClickComponent01() {
   }, "Reset"), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("h1", null, countObj.count)));
 }
 
-},{"react":14}],31:[function(require,module,exports){
+},{"react":14}],33:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59741,6 +59866,10 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 function PlayerScore() {
+  /**
+   * Initial state value containing 
+   * list of player objects
+   * **/
   var playerList = [{
     "id": 123,
     "name": "Rud Van Nistelroy",
@@ -59758,7 +59887,19 @@ function PlayerScore() {
     "name": "Timothy Jabs",
     "score": 9
   }];
+
+  /**
+   * Reducer function accepting state and
+   * action, here state is list of players 
+   * **/
   var reducerFn = function reducerFn(players, action) {
+    /**
+     * If the 'type' in the action object
+     * contains value 'INCREASE' then search
+     * for the specific player using 'playerId'
+     * present in the action object and increase the 
+     * count of the 'score' by 1.
+     * */
     if (action.type === "INCREASE") {
       var updatedScores = players.map(function (playerObj) {
         if (playerObj.id === action.playerId) {
@@ -59767,6 +59908,14 @@ function PlayerScore() {
         return playerObj;
       });
       return updatedScores;
+
+      /**
+       * If the 'type' in the action object
+       * contains value 'REDUCE' then search
+       * for the specific player using 'playerId'
+       * present in the action object and reduce the 
+       * count of the 'score' by 1.
+       * */
     } else if (action.type === "REDUCE") {
       var _updatedScores = players.map(function (playerObj) {
         if (playerObj.id === action.playerId) {
@@ -59781,14 +59930,28 @@ function PlayerScore() {
   };
   var _useReducer = (0, _react.useReducer)(reducerFn, playerList),
     _useReducer2 = _slicedToArray(_useReducer, 2),
-    scoreList = _useReducer2[0],
+    listOfPlayers = _useReducer2[0],
     dispatch = _useReducer2[1];
+
+  /**
+   * this below function is invoked on the
+   * click of 'Increase Score' button. Its dispatches
+   * object containing 'playerId' of whose score needs to be
+   * increased and action 'type' holding value 'INCREASE'.
+   * **/
   var handleIncrement = function handleIncrement(playerObject) {
     dispatch({
       "type": "INCREASE",
       "playerId": playerObject["id"]
     });
   };
+
+  /**
+   * this below function is invoked on the
+   * click of 'Decrease Score' button. Its dispatches
+   * object containing 'playerId' of whose score needs to be
+   * decreased and action 'type' holding value 'REDUCE'.
+   * **/
   var handleDecrement = function handleDecrement(playerObject) {
     dispatch({
       "type": "REDUCE",
@@ -59799,7 +59962,7 @@ function PlayerScore() {
     className: "well"
   }, /*#__PURE__*/_react["default"].createElement("table", {
     className: "table table-bordered table-stripped"
-  }, scoreList.map(function (playerInstance) {
+  }, listOfPlayers.map(function (playerInstance) {
     return /*#__PURE__*/_react["default"].createElement("tr", {
       key: playerInstance["id"]
     }, /*#__PURE__*/_react["default"].createElement("td", null, playerInstance["name"]), /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement("button", {
@@ -59818,4 +59981,4 @@ function PlayerScore() {
   }))));
 }
 
-},{"react":14}]},{},[25]);
+},{"react":14}]},{},[27]);

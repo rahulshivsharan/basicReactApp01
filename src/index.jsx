@@ -12,6 +12,7 @@ import ParentApp01 from "./passOnToChildEx01/ParentApp01.jsx";
 import ParentComp02 from "./passOneValueToComponentEx02/ParentComponent02.jsx";
 import ClickComponent01 from "./reducer01/ClickComponent01.jsx";
 import PlayerScore from "./useReducer02/PlayerScore.jsx";
+import MovieListOne from "./hoc01/MovieList.jsx";
 
 export default function App(){
 	console.log("App rendering");
@@ -68,6 +69,11 @@ export default function App(){
 											<Link to="/reducerapp02">Reducer App 02</Link>
 										</td>
 									</tr>
+									<tr>										
+										<td>
+											<Link to="/hoc01">Load Movies - HOC 1</Link>
+										</td>
+									</tr>
 								</table>							
 							</div>
 						</div>						
@@ -83,6 +89,7 @@ export default function App(){
 							<Route path="/parent02" element={<ParentComp02 />} />
 							<Route path="/reducerapp01" element={<ClickComponent01 />} />
 							<Route path="/reducerapp02" element={<PlayerScore />} />
+							<Route path="/hoc01" element={<MovieListOne />} />
 						</Routes>
 					</div>
 				</div>
