@@ -16,6 +16,7 @@ function withMovieDataFn (WrapperComponent) {
 		const [movies, setMovies] = useState([]);
 		const [loading, setLoading] = useState(true);
 		const [error, setError] = useState(undefined);
+		const [searchQuery, setSearchQuery] = useState("star");
 
 		const requestConfig = {
 			"headers": {
@@ -24,10 +25,11 @@ function withMovieDataFn (WrapperComponent) {
 		  	}
 		}
 
-		const date = new Date();
-		const url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete=sam&type=movie&rows=25&sortOrder=ASC&sortField=id&time="+date.getTime();
+		const fetchMovieData = (query) => {
+			setLoading(true);
+			const date = new Date();
+			const url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete="+query+"&type=movie&rows=25&sortOrder=ASC&sortField=id&time="+date.getTime();	
 
-		useEffect(()=>{			
 			$.ajax({
 				...requestConfig,
 				"url" : url,
@@ -42,8 +44,18 @@ function withMovieDataFn (WrapperComponent) {
 					setLoading(false);
 				}
 			});
+		};
+
+		useEffect(()=>{
+			fetchMovieData(searchQuery);
 		},[]);
 
-		return (<WrapperComponent {...props} movies={movies} loading={loading} error={error} />);
+		return (<WrapperComponent 	{...props} 
+									movies={movies} 
+									loading={loading} 
+									error={error}
+									searchQuery={searchQuery}
+									setSearchQuery={setSearchQuery}
+									fetchMovieData={fetchMovieData} />);
 	};
 };

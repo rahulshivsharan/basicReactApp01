@@ -8,7 +8,17 @@ const MovieList = MovieListFunc;
 
 export default withMovieData(MovieList);
 
-function MovieListFunc({movies, loading, error}){
+function MovieListFunc({movies, loading, error, searchQuery, setSearchQuery, fetchMovieData}){
+
+	const handleSearch = (e) => {
+		e.preventDefault();
+		fetchMovieData(searchQuery);
+	}
+
+	const handleChange = (e)=>{		
+		setSearchQuery(e.target.value);
+	}
+
 	if(loading === true) {
 		return (<p> Loading...</p>);
 	}
@@ -19,6 +29,14 @@ function MovieListFunc({movies, loading, error}){
 
 	return (
 		<Fragment>
+			<form className="form-inline" onSubmit={handleSearch}>
+				<div className="form-group">
+					<label htmlFor="movietextbox">Search</label>&nbsp;
+					<input type="text" className="form-control" id="movietextbox" placeholder="Enter Movie Name" onChange={handleChange} />
+				</div>
+				<button type="submit" className="btn btn-primary">Enter</button>
+			</form>
+			<br/>
 			<table className="table table-bordered">
 				<thead>
 					<tr>

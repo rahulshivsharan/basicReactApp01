@@ -59416,14 +59416,40 @@ var _default = exports["default"] = (0, _withMovieData["default"])(MovieList);
 function MovieListFunc(_ref) {
   var movies = _ref.movies,
     loading = _ref.loading,
-    error = _ref.error;
+    error = _ref.error,
+    searchQuery = _ref.searchQuery,
+    setSearchQuery = _ref.setSearchQuery,
+    fetchMovieData = _ref.fetchMovieData;
+  var handleSearch = function handleSearch(e) {
+    e.preventDefault();
+    fetchMovieData(searchQuery);
+  };
+  var handleChange = function handleChange(e) {
+    setSearchQuery(e.target.value);
+  };
   if (loading === true) {
     return /*#__PURE__*/_react["default"].createElement("p", null, " Loading...");
   }
   if (error !== undefined) {
     return /*#__PURE__*/_react["default"].createElement("p", null, " Error: ", error.message);
   }
-  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("table", {
+  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("form", {
+    className: "form-inline",
+    onSubmit: handleSearch
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    htmlFor: "movietextbox"
+  }, "Search"), "\xA0", /*#__PURE__*/_react["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    id: "movietextbox",
+    placeholder: "Enter Movie Name",
+    onChange: handleChange
+  })), /*#__PURE__*/_react["default"].createElement("button", {
+    type: "submit",
+    className: "btn btn-primary"
+  }, "Enter")), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("table", {
     className: "table table-bordered"
   }, /*#__PURE__*/_react["default"].createElement("thead", null, /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("th", null, "Sr No"), /*#__PURE__*/_react["default"].createElement("th", null, "Movie Name"), /*#__PURE__*/_react["default"].createElement("th", null, "Type"), /*#__PURE__*/_react["default"].createElement("th", null, "Genre"), /*#__PURE__*/_react["default"].createElement("th", null, "Released Date"), /*#__PURE__*/_react["default"].createElement("th", null, "Poster"))), /*#__PURE__*/_react["default"].createElement("tbody", null, movies.map(function (movieObj) {
     var imageUrl = movieObj["primaryImage"];
@@ -59485,15 +59511,20 @@ function withMovieDataFn(WrapperComponent) {
       _useState6 = _slicedToArray(_useState5, 2),
       error = _useState6[0],
       setError = _useState6[1];
+    var _useState7 = (0, _react.useState)("star"),
+      _useState8 = _slicedToArray(_useState7, 2),
+      searchQuery = _useState8[0],
+      setSearchQuery = _useState8[1];
     var requestConfig = {
       "headers": {
         "x-rapidapi-host": "imdb236.p.rapidapi.com",
         "x-rapidapi-key": "94afd7eb28mshe44cffb31930cb6p14b211jsn7b2c8149e2ec"
       }
     };
-    var date = new Date();
-    var url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete=sam&type=movie&rows=25&sortOrder=ASC&sortField=id&time=" + date.getTime();
-    (0, _react.useEffect)(function () {
+    var fetchMovieData = function fetchMovieData(query) {
+      setLoading(true);
+      var date = new Date();
+      var url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete=" + query + "&type=movie&rows=25&sortOrder=ASC&sortField=id&time=" + date.getTime();
       $.ajax(_objectSpread(_objectSpread({}, requestConfig), {}, {
         "url": url,
         "type": "GET",
@@ -59507,11 +59538,17 @@ function withMovieDataFn(WrapperComponent) {
           setLoading(false);
         }
       }));
+    };
+    (0, _react.useEffect)(function () {
+      fetchMovieData(searchQuery);
     }, []);
     return /*#__PURE__*/_react["default"].createElement(WrapperComponent, _extends({}, props, {
       movies: movies,
       loading: loading,
-      error: error
+      error: error,
+      searchQuery: searchQuery,
+      setSearchQuery: setSearchQuery,
+      fetchMovieData: fetchMovieData
     }));
   }
   ;
