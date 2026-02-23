@@ -9,14 +9,20 @@ const MovieList = MovieListFunc;
 export default withMovieData(MovieList);
 
 function MovieListFunc({movies, loading, error, searchQuery, setSearchQuery, fetchMovieData}){
-
+	
+	/**
+	 * invoked on the click of form submit
+	 * **/
 	const handleSearch = (e) => {
 		e.preventDefault();
 		fetchMovieData(searchQuery);
 	}
 
+	/**
+	 * invoked when change in text value in text box
+	 * **/
 	const handleChange = (e)=>{		
-		setSearchQuery(e.target.value);
+		setSearchQuery(e.target.value); // sets 'searchQuery'
 	}
 
 	if(loading === true) {

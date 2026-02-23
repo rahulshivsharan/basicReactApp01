@@ -2,8 +2,7 @@
 import React, {useState, useEffect} from "react";
 
 export default function Welcome(){
-	const [welcomeMsg, setWelcomeMsg] = useState("Welcome to my react application");
-	console.log("Rendering welcome");
+	const [welcomeMsg, setWelcomeMsg] = useState("Welcome to my react application");	
 	return(
 		<div>
 			<header>

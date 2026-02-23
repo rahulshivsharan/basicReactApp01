@@ -6,12 +6,18 @@ const withMovieData = withMovieDataFn;
 
 export default withMovieData;
 
+
 function withMovieDataFn (WrapperComponent) {
 
 	const MovieDataComponent = MovieDataComponentFunc;
 
 	return MovieDataComponent;
 
+	/**
+	 * Below is the function which is 
+	 * going to be returned when 'withMovieDataFn' 
+	 * is called.
+	 * */
 	function MovieDataComponentFunc(props){		
 		const [movies, setMovies] = useState([]);
 		const [loading, setLoading] = useState(true);
@@ -25,10 +31,11 @@ function withMovieDataFn (WrapperComponent) {
 		  	}
 		}
 
-		const fetchMovieData = (query) => {
+		const fetchMovieData = (movieName) => {
+			
 			setLoading(true);
 			const date = new Date();
-			const url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete="+query+"&type=movie&rows=25&sortOrder=ASC&sortField=id&time="+date.getTime();	
+			const url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete="+movieName+"&type=movie&rows=25&sortOrder=ASC&sortField=id&time="+date.getTime();	
 
 			$.ajax({
 				...requestConfig,
@@ -46,7 +53,13 @@ function withMovieDataFn (WrapperComponent) {
 			});
 		};
 
+		/**
+		 * useEffect will be called only once
+		 * on load if the component.
+		 * */
 		useEffect(()=>{
+
+			// below function calls movie api
 			fetchMovieData(searchQuery);
 		},[]);
 
@@ -58,4 +71,7 @@ function withMovieDataFn (WrapperComponent) {
 									setSearchQuery={setSearchQuery}
 									fetchMovieData={fetchMovieData} />);
 	};
+	
 };
+
+

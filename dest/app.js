@@ -59395,7 +59395,6 @@ function Welcome() {
     _useState2 = _slicedToArray(_useState, 2),
     welcomeMsg = _useState2[0],
     setWelcomeMsg = _useState2[1];
-  console.log("Rendering welcome");
   return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("header", null, /*#__PURE__*/_react["default"].createElement("h1", null, "Welcome to react")), /*#__PURE__*/_react["default"].createElement("h2", null, welcomeMsg));
 }
 
@@ -59420,12 +59419,19 @@ function MovieListFunc(_ref) {
     searchQuery = _ref.searchQuery,
     setSearchQuery = _ref.setSearchQuery,
     fetchMovieData = _ref.fetchMovieData;
+  /**
+   * invoked on the click of form submit
+   * **/
   var handleSearch = function handleSearch(e) {
     e.preventDefault();
     fetchMovieData(searchQuery);
   };
+
+  /**
+   * invoked when change in text value in text box
+   * **/
   var handleChange = function handleChange(e) {
-    setSearchQuery(e.target.value);
+    setSearchQuery(e.target.value); // sets 'searchQuery'
   };
   if (loading === true) {
     return /*#__PURE__*/_react["default"].createElement("p", null, " Loading...");
@@ -59498,6 +59504,12 @@ var _default = exports["default"] = withMovieData;
 function withMovieDataFn(WrapperComponent) {
   var MovieDataComponent = MovieDataComponentFunc;
   return MovieDataComponent;
+
+  /**
+   * Below is the function which is 
+   * going to be returned when 'withMovieDataFn' 
+   * is called.
+   * */
   function MovieDataComponentFunc(props) {
     var _useState = (0, _react.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -59521,10 +59533,10 @@ function withMovieDataFn(WrapperComponent) {
         "x-rapidapi-key": "94afd7eb28mshe44cffb31930cb6p14b211jsn7b2c8149e2ec"
       }
     };
-    var fetchMovieData = function fetchMovieData(query) {
+    var fetchMovieData = function fetchMovieData(movieName) {
       setLoading(true);
       var date = new Date();
-      var url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete=" + query + "&type=movie&rows=25&sortOrder=ASC&sortField=id&time=" + date.getTime();
+      var url = "https://imdb236.p.rapidapi.com/api/imdb/search?primaryTitleAutocomplete=" + movieName + "&type=movie&rows=25&sortOrder=ASC&sortField=id&time=" + date.getTime();
       $.ajax(_objectSpread(_objectSpread({}, requestConfig), {}, {
         "url": url,
         "type": "GET",
@@ -59539,7 +59551,13 @@ function withMovieDataFn(WrapperComponent) {
         }
       }));
     };
+
+    /**
+     * useEffect will be called only once
+     * on load if the component.
+     * */
     (0, _react.useEffect)(function () {
+      // below function calls movie api
       fetchMovieData(searchQuery);
     }, []);
     return /*#__PURE__*/_react["default"].createElement(WrapperComponent, _extends({}, props, {
