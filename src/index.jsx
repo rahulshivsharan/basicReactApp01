@@ -13,6 +13,7 @@ import ParentComp02 from "./passOneValueToComponentEx02/ParentComponent02.jsx";
 import ClickComponent01 from "./reducer01/ClickComponent01.jsx";
 import PlayerScore from "./useReducer02/PlayerScore.jsx";
 import MovieListOne from "./hoc01/MovieList.jsx";
+import MovieSearchTwo from "./customHooks01/MovieSearch.jsx";
 
 export default function App(){
 	console.log("App rendering");
@@ -74,6 +75,11 @@ export default function App(){
 											<Link to="/hoc01">Load Movies - HOC 1</Link>
 										</td>
 									</tr>
+									<tr>										
+										<td>
+											<Link to="/customhooks01">Search Movies - Custom Hook 1</Link>
+										</td>
+									</tr>
 								</table>							
 							</div>
 						</div>						
@@ -90,6 +96,7 @@ export default function App(){
 							<Route path="/reducerapp01" element={<ClickComponent01 />} />
 							<Route path="/reducerapp02" element={<PlayerScore />} />
 							<Route path="/hoc01" element={<MovieListOne />} />
+							<Route path="/customhooks01" element={<MovieSearchTwo />} />
 						</Routes>
 					</div>
 				</div>
