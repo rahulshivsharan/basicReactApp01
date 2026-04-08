@@ -14,6 +14,9 @@ import ClickComponent01 from "./reducer01/ClickComponent01.jsx";
 import PlayerScore from "./useReducer02/PlayerScore.jsx";
 import MovieListOne from "./hoc01/MovieList.jsx";
 import MovieSearchTwo from "./customHooks01/MovieSearch.jsx";
+import ParentApp02 from "./ctx01/Parent.jsx";
+import {UserContext} from "./UserContext.jsx";
+import ParentApp03 from "./ctx02/Parent.jsx";
 
 export default function App(){
 	console.log("App rendering");
@@ -80,6 +83,16 @@ export default function App(){
 											<Link to="/customhooks01">Search Movies - Custom Hook 1</Link>
 										</td>
 									</tr>
+									<tr>										
+										<td>
+											<Link to="/drill01">Prop Drilling 01</Link>
+										</td>
+									</tr>
+									<tr>										
+										<td>
+											<Link to="/drill02">Context API No Prop Drilling</Link>
+										</td>
+									</tr>
 								</table>							
 							</div>
 						</div>						
@@ -97,6 +110,12 @@ export default function App(){
 							<Route path="/reducerapp02" element={<PlayerScore />} />
 							<Route path="/hoc01" element={<MovieListOne />} />
 							<Route path="/customhooks01" element={<MovieSearchTwo />} />
+							<Route path="/drill01" element={<ParentApp02 />} />
+							<Route path="/drill02" element={
+								<UserContext.Provider value={"Hello from UserContext"}>									
+									<ParentApp03 />	
+								</UserContext.Provider>								
+							} />
 						</Routes>
 					</div>
 				</div>
