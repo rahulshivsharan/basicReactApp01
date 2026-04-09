@@ -15,7 +15,7 @@ import PlayerScore from "./useReducer02/PlayerScore.jsx";
 import MovieListOne from "./hoc01/MovieList.jsx";
 import MovieSearchTwo from "./customHooks01/MovieSearch.jsx";
 import ParentApp02 from "./ctx01/Parent.jsx";
-import {UserContext} from "./UserContext.jsx";
+import {UserContext} from "./stores/UserContext.jsx";
 import ParentApp03 from "./ctx02/Parent.jsx";
 
 export default function App(){

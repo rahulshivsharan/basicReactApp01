@@ -59590,16 +59590,6 @@ function DemoExample04() {
 }
 
 },{"react":14}],24:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.UserContext = void 0;
-var _react = require("react");
-var UserContext = exports.UserContext = /*#__PURE__*/(0, _react.createContext)();
-
-},{"react":14}],25:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59623,7 +59613,7 @@ function Welcome() {
   return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("header", null, /*#__PURE__*/_react["default"].createElement("h1", null, "Welcome to react")), /*#__PURE__*/_react["default"].createElement("h2", null, welcomeMsg));
 }
 
-},{"react":14}],26:[function(require,module,exports){
+},{"react":14}],25:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59648,7 +59638,7 @@ function Child(_ref) {
   })));
 }
 
-},{"./GrandChild.jsx":27,"react":14}],27:[function(require,module,exports){
+},{"./GrandChild.jsx":26,"react":14}],26:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59669,7 +59659,7 @@ function GrandChild(_ref) {
   }, /*#__PURE__*/_react["default"].createElement("p", null, "Message : ", message)));
 }
 
-},{"react":14}],28:[function(require,module,exports){
+},{"react":14}],27:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59694,7 +59684,7 @@ function Parent() {
   })));
 }
 
-},{"./Child.jsx":26,"react":14}],29:[function(require,module,exports){
+},{"./Child.jsx":25,"react":14}],28:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59716,7 +59706,7 @@ function Child() {
   }, /*#__PURE__*/_react["default"].createElement(_GrandChild["default"], null)));
 }
 
-},{"./GrandChild.jsx":30,"react":14}],30:[function(require,module,exports){
+},{"./GrandChild.jsx":29,"react":14}],29:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59725,7 +59715,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = GrandChild;
 var _react = _interopRequireWildcard(require("react"));
-var _UserContext = require("../UserContext.jsx");
+var _UserContext = require("../stores/UserContext.jsx");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function GrandChild() {
   var message = (0, _react.useContext)(_UserContext.UserContext);
@@ -59738,7 +59728,7 @@ function GrandChild() {
   }, /*#__PURE__*/_react["default"].createElement("p", null, "Message : ", message)));
 }
 
-},{"../UserContext.jsx":24,"react":14}],31:[function(require,module,exports){
+},{"../stores/UserContext.jsx":41,"react":14}],30:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59751,20 +59741,16 @@ var _Child = _interopRequireDefault(require("./Child.jsx"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function Parent() {
-  var message = "Hello from Parent";
-  var UserContext = /*#__PURE__*/(0, _react.createContext)();
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "panel panel-default"
   }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "panel-heading"
   }, "Parent"), /*#__PURE__*/_react["default"].createElement("div", {
     className: "panel-body"
-  }, /*#__PURE__*/_react["default"].createElement(UserContext.Provider, {
-    value: message
-  }, /*#__PURE__*/_react["default"].createElement(_Child["default"], null))));
+  }, /*#__PURE__*/_react["default"].createElement(_Child["default"], null)));
 }
 
-},{"./Child.jsx":29,"react":14}],32:[function(require,module,exports){
+},{"./Child.jsx":28,"react":14}],31:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -59856,7 +59842,7 @@ function MovieSearch() {
   }))));
 }
 
-},{"./useMovieSearch.jsx":33,"react":14}],33:[function(require,module,exports){
+},{"./useMovieSearch.jsx":32,"react":14}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -59965,7 +59951,7 @@ function useMovieSearch() {
   };
 }
 
-},{"react":14}],34:[function(require,module,exports){
+},{"react":14}],33:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -60044,7 +60030,7 @@ function MovieListFunc(_ref) {
 }
 ;
 
-},{"./withMovieData.jsx":35,"react":14}],35:[function(require,module,exports){
+},{"./withMovieData.jsx":34,"react":14}],34:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -60140,7 +60126,7 @@ function withMovieDataFn(WrapperComponent) {
 }
 ;
 
-},{"react":14}],36:[function(require,module,exports){
+},{"react":14}],35:[function(require,module,exports){
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -60164,7 +60150,7 @@ var _PlayerScore = _interopRequireDefault(require("./useReducer02/PlayerScore.js
 var _MovieList = _interopRequireDefault(require("./hoc01/MovieList.jsx"));
 var _MovieSearch = _interopRequireDefault(require("./customHooks01/MovieSearch.jsx"));
 var _Parent = _interopRequireDefault(require("./ctx01/Parent.jsx"));
-var _UserContext = require("./UserContext.jsx");
+var _UserContext = require("./stores/UserContext.jsx");
 var _Parent2 = _interopRequireDefault(require("./ctx02/Parent.jsx"));
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
@@ -60260,7 +60246,7 @@ function App() {
   root.render(/*#__PURE__*/_react["default"].createElement(App, null));
 });
 
-},{"./CountEx01.jsx":20,"./CountEx02.jsx":21,"./Example03.jsx":22,"./Example04.jsx":23,"./UserContext.jsx":24,"./Welcome.jsx":25,"./ctx01/Parent.jsx":28,"./ctx02/Parent.jsx":31,"./customHooks01/MovieSearch.jsx":32,"./hoc01/MovieList.jsx":34,"./passOnToChildEx01/ParentApp01.jsx":38,"./passOneValueToComponentEx02/ParentComponent02.jsx":40,"./reducer01/ClickComponent01.jsx":41,"./useReducer02/PlayerScore.jsx":42,"jquery":1,"react":14,"react-dom/client":5,"react-router":10}],37:[function(require,module,exports){
+},{"./CountEx01.jsx":20,"./CountEx02.jsx":21,"./Example03.jsx":22,"./Example04.jsx":23,"./Welcome.jsx":24,"./ctx01/Parent.jsx":27,"./ctx02/Parent.jsx":30,"./customHooks01/MovieSearch.jsx":31,"./hoc01/MovieList.jsx":33,"./passOnToChildEx01/ParentApp01.jsx":37,"./passOneValueToComponentEx02/ParentComponent02.jsx":39,"./reducer01/ClickComponent01.jsx":40,"./stores/UserContext.jsx":41,"./useReducer02/PlayerScore.jsx":42,"jquery":1,"react":14,"react-dom/client":5,"react-router":10}],36:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -60295,7 +60281,7 @@ function ChildApp01(_ref) {
   }));
 }
 
-},{"react":14}],38:[function(require,module,exports){
+},{"react":14}],37:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -60333,7 +60319,7 @@ function ParentApp01() {
   })));
 }
 
-},{"./ChildApp01.jsx":37,"react":14}],39:[function(require,module,exports){
+},{"./ChildApp01.jsx":36,"react":14}],38:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -60379,7 +60365,7 @@ function ChildComp02(_ref) {
   })));
 }
 
-},{"react":14}],40:[function(require,module,exports){
+},{"react":14}],39:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -60414,7 +60400,7 @@ function ParentComp02() {
   }));
 }
 
-},{"./ChildComponent02.jsx":39,"react":14}],41:[function(require,module,exports){
+},{"./ChildComponent02.jsx":38,"react":14}],40:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -60491,6 +60477,16 @@ function ClickComponent01() {
     }
   }, "Reset"), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("h1", null, countObj.count)));
 }
+
+},{"react":14}],41:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UserContext = void 0;
+var _react = require("react");
+var UserContext = exports.UserContext = /*#__PURE__*/(0, _react.createContext)();
 
 },{"react":14}],42:[function(require,module,exports){
 'use strict';
@@ -60624,4 +60620,4 @@ function PlayerScore() {
   }))));
 }
 
-},{"react":14}]},{},[36]);
+},{"react":14}]},{},[35]);
