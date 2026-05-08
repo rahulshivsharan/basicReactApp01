@@ -60152,6 +60152,7 @@ var _MovieSearch = _interopRequireDefault(require("./customHooks01/MovieSearch.j
 var _Parent = _interopRequireDefault(require("./ctx01/Parent.jsx"));
 var _UserContext = require("./stores/UserContext.jsx");
 var _Parent2 = _interopRequireDefault(require("./ctx02/Parent.jsx"));
+var _Product = _interopRequireDefault(require("./test/Product.jsx"));
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function App() {
@@ -60194,7 +60195,9 @@ function App() {
     to: "/drill01"
   }, "Prop Drilling 01"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
     to: "/drill02"
-  }, "Context API No Prop Drilling"))))))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Context API No Prop Drilling"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
+    to: "/test01"
+  }, "Test Product API"))))))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "col-md-10"
   }, /*#__PURE__*/_react["default"].createElement(_reactRouter.Routes, null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
     path: "/",
@@ -60237,6 +60240,9 @@ function App() {
     element: /*#__PURE__*/_react["default"].createElement(_UserContext.UserContext.Provider, {
       value: "Hello from UserContext"
     }, /*#__PURE__*/_react["default"].createElement(_Parent2["default"], null))
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
+    path: "/test01",
+    element: /*#__PURE__*/_react["default"].createElement(_Product["default"], null)
   }))))));
 }
 (0, _jquery["default"])(document).ready(function () {
@@ -60246,7 +60252,7 @@ function App() {
   root.render(/*#__PURE__*/_react["default"].createElement(App, null));
 });
 
-},{"./CountEx01.jsx":20,"./CountEx02.jsx":21,"./Example03.jsx":22,"./Example04.jsx":23,"./Welcome.jsx":24,"./ctx01/Parent.jsx":27,"./ctx02/Parent.jsx":30,"./customHooks01/MovieSearch.jsx":31,"./hoc01/MovieList.jsx":33,"./passOnToChildEx01/ParentApp01.jsx":37,"./passOneValueToComponentEx02/ParentComponent02.jsx":39,"./reducer01/ClickComponent01.jsx":40,"./stores/UserContext.jsx":41,"./useReducer02/PlayerScore.jsx":42,"jquery":1,"react":14,"react-dom/client":5,"react-router":10}],36:[function(require,module,exports){
+},{"./CountEx01.jsx":20,"./CountEx02.jsx":21,"./Example03.jsx":22,"./Example04.jsx":23,"./Welcome.jsx":24,"./ctx01/Parent.jsx":27,"./ctx02/Parent.jsx":30,"./customHooks01/MovieSearch.jsx":31,"./hoc01/MovieList.jsx":33,"./passOnToChildEx01/ParentApp01.jsx":37,"./passOneValueToComponentEx02/ParentComponent02.jsx":39,"./reducer01/ClickComponent01.jsx":40,"./stores/UserContext.jsx":41,"./test/Product.jsx":42,"./useReducer02/PlayerScore.jsx":43,"jquery":1,"react":14,"react-dom/client":5,"react-router":10}],36:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -60489,6 +60495,59 @@ var _react = require("react");
 var UserContext = exports.UserContext = /*#__PURE__*/(0, _react.createContext)();
 
 },{"react":14}],42:[function(require,module,exports){
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = Product;
+var _react = _interopRequireWildcard(require("react"));
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function Product() {
+  var _useState = (0, _react.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    productData = _useState2[0],
+    setProductData = _useState2[1];
+  var getProducts = function getProducts() {
+    return new Promise(function (resolve, reject) {
+      var successFn = function successFn(data) {
+        //console.log(data["products"]);
+        var productList = data["products"];
+        resolve(productList);
+      };
+      var errorFn = function errorFn(xhr, status, error) {
+        reject(error);
+      };
+      $.ajax({
+        "url": 'https://dummyjson.com/products',
+        "type": "GET",
+        "success": successFn,
+        "error": errorFn
+      });
+    });
+  };
+  (0, _react.useEffect)(function () {
+    getProducts().then(function (productList) {
+      setProductData(productList);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  }, []);
+  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("table", {
+    className: "table table-stripper table-bordered"
+  }, /*#__PURE__*/_react["default"].createElement("thead", null, /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("th", null, "ID"), /*#__PURE__*/_react["default"].createElement("th", null, "Title"), /*#__PURE__*/_react["default"].createElement("th", null, "Description"), /*#__PURE__*/_react["default"].createElement("th", null, "Category"), /*#__PURE__*/_react["default"].createElement("th", null, "Price"), /*#__PURE__*/_react["default"].createElement("th", null, "Discount Percentage"), /*#__PURE__*/_react["default"].createElement("th", null, "Rating"), /*#__PURE__*/_react["default"].createElement("th", null, "Stock"))), /*#__PURE__*/_react["default"].createElement("tbody", null, productData.map(function (product) {
+    return /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, product["id"]), /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement("b", null, product["title"])), /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement("i", null, product["description"])), /*#__PURE__*/_react["default"].createElement("td", null, product["category"]), /*#__PURE__*/_react["default"].createElement("td", null, product["price"]), /*#__PURE__*/_react["default"].createElement("td", null, product["discountPercentage"]), /*#__PURE__*/_react["default"].createElement("td", null, product["rating"]), /*#__PURE__*/_react["default"].createElement("td", null, product["stock"]));
+  })))));
+}
+
+},{"react":14}],43:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }

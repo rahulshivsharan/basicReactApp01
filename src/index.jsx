@@ -17,6 +17,7 @@ import MovieSearchTwo from "./customHooks01/MovieSearch.jsx";
 import ParentApp02 from "./ctx01/Parent.jsx";
 import {UserContext} from "./stores/UserContext.jsx";
 import ParentApp03 from "./ctx02/Parent.jsx";
+import ProdcutTestApp01 from "./test/Product.jsx";
 
 export default function App(){
 	console.log("App rendering");
@@ -93,6 +94,11 @@ export default function App(){
 											<Link to="/drill02">Context API No Prop Drilling</Link>
 										</td>
 									</tr>
+									<tr>										
+										<td>
+											<Link to="/test01">Test Product API</Link>
+										</td>
+									</tr>
 								</table>							
 							</div>
 						</div>						
@@ -116,6 +122,7 @@ export default function App(){
 									<ParentApp03 />	
 								</UserContext.Provider>								
 							} />
+							<Route path="/test01" element={<ProdcutTestApp01 />} />
 						</Routes>
 					</div>
 				</div>
