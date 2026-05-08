@@ -40,8 +40,11 @@ export default function Product(){
 
 		return (
 			<Fragment>
+				<div className="page-header">
+					<h2>Using Promise API to fetch Products</h2>
+				</div>
 				<div>
-					<table className="table table-stripper table-bordered">
+					<table className="table table-bordered">
 						<thead>
 							<tr>
 								<th>ID</th>

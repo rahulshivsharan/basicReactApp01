@@ -18,6 +18,8 @@ import ParentApp02 from "./ctx01/Parent.jsx";
 import {UserContext} from "./stores/UserContext.jsx";
 import ParentApp03 from "./ctx02/Parent.jsx";
 import ProdcutTestApp01 from "./test/Product.jsx";
+import ProdcutTestApp02 from "./test/Product02.jsx";
+import ProdcutTestApp03 from "./test/Product03.jsx";
 
 export default function App(){
 	console.log("App rendering");
@@ -96,7 +98,17 @@ export default function App(){
 									</tr>
 									<tr>										
 										<td>
-											<Link to="/test01">Test Product API</Link>
+											<Link to="/test01">Test Product API 1</Link>
+										</td>
+									</tr>
+									<tr>										
+										<td>
+											<Link to="/test02">Test Product API 2</Link>
+										</td>
+									</tr>
+									<tr>										
+										<td>
+											<Link to="/test03">Test Product API 3</Link>
 										</td>
 									</tr>
 								</table>							
@@ -123,6 +135,8 @@ export default function App(){
 								</UserContext.Provider>								
 							} />
 							<Route path="/test01" element={<ProdcutTestApp01 />} />
+							<Route path="/test02" element={<ProdcutTestApp02 />} />
+							<Route path="/test03" element={<ProdcutTestApp03 />} />
 						</Routes>
 					</div>
 				</div>
