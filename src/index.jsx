@@ -20,6 +20,9 @@ import ParentApp03 from "./ctx02/Parent.jsx";
 import ProdcutTestApp01 from "./test/Product.jsx";
 import ProdcutTestApp02 from "./test/Product02.jsx";
 import ProdcutTestApp03 from "./test/Product03.jsx";
+import * as MobxReact from 'mobx-react';
+import EmployeeStoreForMobx01 from './stores/EmployeeStore.jsx';
+import EmployeeComponentMobx01 from './mobx01/EmployeeComponentMobx01.jsx';
 
 export default function App(){
 	console.log("App rendering");
@@ -111,6 +114,11 @@ export default function App(){
 											<Link to="/test03">Test Product API 3</Link>
 										</td>
 									</tr>
+									<tr>										
+										<td>
+											<Link to="/mobx01">Mobx Store example 01</Link>
+										</td>
+									</tr>
 								</table>							
 							</div>
 						</div>						
@@ -137,6 +145,11 @@ export default function App(){
 							<Route path="/test01" element={<ProdcutTestApp01 />} />
 							<Route path="/test02" element={<ProdcutTestApp02 />} />
 							<Route path="/test03" element={<ProdcutTestApp03 />} />
+							<Route path="/mobx01" element={
+								<MobxReact.Provider employeeInstance={EmployeeStoreForMobx01}>									
+									<EmployeeComponentMobx01 />	
+								</MobxReact.Provider>					
+							} />
 						</Routes>
 					</div>
 				</div>
