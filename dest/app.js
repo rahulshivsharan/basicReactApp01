@@ -67113,7 +67113,7 @@ function GrandChild() {
   }, /*#__PURE__*/_react["default"].createElement("p", null, "Message : ", message)));
 }
 
-},{"../stores/UserContext.jsx":55,"react":23}],42:[function(require,module,exports){
+},{"../stores/UserContext.jsx":57,"react":23}],42:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -67543,6 +67543,8 @@ var _Product3 = _interopRequireDefault(require("./test/Product03.jsx"));
 var MobxReact = _interopRequireWildcard(require("mobx-react"));
 var _EmployeeStore = _interopRequireDefault(require("./stores/EmployeeStore.jsx"));
 var _EmployeeComponentMobx = _interopRequireDefault(require("./mobx01/EmployeeComponentMobx01.jsx"));
+var _EmployeeContext = _interopRequireDefault(require("./mobx02/EmployeeContext.jsx"));
+var _EmployeeComponentMobx2 = _interopRequireDefault(require("./mobx02/EmployeeComponentMobx02.jsx"));
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function App() {
@@ -67593,7 +67595,9 @@ function App() {
     to: "/test03"
   }, "Test Product API 3"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
     to: "/mobx01"
-  }, "Mobx Store example 01"))))))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Mobx Store example 01"))), /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Link, {
+    to: "/mobx02"
+  }, "Mobx Store example 02"))))))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "col-md-10"
   }, /*#__PURE__*/_react["default"].createElement(_reactRouter.Routes, null, /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
     path: "/",
@@ -67650,6 +67654,11 @@ function App() {
     element: /*#__PURE__*/_react["default"].createElement(MobxReact.Provider, {
       employeeInstance: _EmployeeStore["default"]
     }, /*#__PURE__*/_react["default"].createElement(_EmployeeComponentMobx["default"], null))
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouter.Route, {
+    path: "/mobx02",
+    element: /*#__PURE__*/_react["default"].createElement(_EmployeeContext["default"].Provider, {
+      value: _EmployeeStore["default"]
+    }, /*#__PURE__*/_react["default"].createElement(_EmployeeComponentMobx2["default"], null))
   }))))));
 }
 (0, _jquery["default"])(document).ready(function () {
@@ -67659,7 +67668,7 @@ function App() {
   root.render(/*#__PURE__*/_react["default"].createElement(App, null));
 });
 
-},{"./CountEx01.jsx":32,"./CountEx02.jsx":33,"./Example03.jsx":34,"./Example04.jsx":35,"./Welcome.jsx":36,"./ctx01/Parent.jsx":39,"./ctx02/Parent.jsx":42,"./customHooks01/MovieSearch.jsx":43,"./hoc01/MovieList.jsx":45,"./mobx01/EmployeeComponentMobx01.jsx":48,"./passOnToChildEx01/ParentApp01.jsx":50,"./passOneValueToComponentEx02/ParentComponent02.jsx":52,"./reducer01/ClickComponent01.jsx":53,"./stores/EmployeeStore.jsx":54,"./stores/UserContext.jsx":55,"./test/Product.jsx":56,"./test/Product02.jsx":57,"./test/Product03.jsx":58,"./useReducer02/PlayerScore.jsx":59,"jquery":1,"mobx-react":5,"react":23,"react-dom/client":14,"react-router":19}],48:[function(require,module,exports){
+},{"./CountEx01.jsx":32,"./CountEx02.jsx":33,"./Example03.jsx":34,"./Example04.jsx":35,"./Welcome.jsx":36,"./ctx01/Parent.jsx":39,"./ctx02/Parent.jsx":42,"./customHooks01/MovieSearch.jsx":43,"./hoc01/MovieList.jsx":45,"./mobx01/EmployeeComponentMobx01.jsx":48,"./mobx02/EmployeeComponentMobx02.jsx":49,"./mobx02/EmployeeContext.jsx":50,"./passOnToChildEx01/ParentApp01.jsx":52,"./passOneValueToComponentEx02/ParentComponent02.jsx":54,"./reducer01/ClickComponent01.jsx":55,"./stores/EmployeeStore.jsx":56,"./stores/UserContext.jsx":57,"./test/Product.jsx":58,"./test/Product02.jsx":59,"./test/Product03.jsx":60,"./useReducer02/PlayerScore.jsx":61,"jquery":1,"mobx-react":5,"react":23,"react-dom/client":14,"react-router":19}],48:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -67767,6 +67776,125 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
+var _react = _interopRequireWildcard(require("react"));
+var _mobxReactLite = require("mobx-react-lite");
+var _EmployeeContext = _interopRequireDefault(require("./EmployeeContext.jsx"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+var employeeComponentFunc = employeeFn;
+var EmployeeComponent = (0, _mobxReactLite.observer)(employeeComponentFunc);
+var _default = exports["default"] = EmployeeComponent;
+function employeeFn() {
+  var employeeStore = (0, _react.useContext)(_EmployeeContext["default"]);
+  var _useState = (0, _react.useState)(""),
+    _useState2 = _slicedToArray(_useState, 2),
+    employeeName = _useState2[0],
+    setEmployeeName = _useState2[1];
+  var _useState3 = (0, _react.useState)(""),
+    _useState4 = _slicedToArray(_useState3, 2),
+    employeeEmail = _useState4[0],
+    setEmployeeEmail = _useState4[1];
+  var _useState5 = (0, _react.useState)(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    employeeSalary = _useState6[0],
+    setEmployeeSalary = _useState6[1];
+  var loadEmployees = function loadEmployees() {
+    return employeeStore.all.map(function (emp) {
+      return /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("td", null, emp["id"]), /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement("b", null, emp["name"])), /*#__PURE__*/_react["default"].createElement("td", null, /*#__PURE__*/_react["default"].createElement("i", null, emp["salary"])), /*#__PURE__*/_react["default"].createElement("td", null, emp["salary"]));
+    });
+  };
+  var addEmployee = function addEmployee() {
+    if (employeeName === "" || employeeEmail === "" || employeeSalary === "") {
+      alert("All fields are required.");
+      return;
+    }
+    var newEmployeeObj = {
+      "id": employeeStore.all.length + 1,
+      "name": employeeName,
+      "salary": employeeSalary,
+      "email": employeeEmail
+    };
+    employeeStore.add(newEmployeeObj);
+    setEmployeeName("");
+    setEmployeeEmail("");
+    setEmployeeSalary("");
+  };
+  return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "page-header"
+  }, /*#__PURE__*/_react["default"].createElement("h2", null, "Mobx + React Context + Hooks")), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "panel panel-default"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "panel-heading"
+  }, /*#__PURE__*/_react["default"].createElement("h4", null, "Add Employee")), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "panel-body"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", null, "Name"), /*#__PURE__*/_react["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: employeeName,
+    onChange: function onChange(e) {
+      setEmployeeName(e.target.value);
+    }
+  })), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", null, "Email"), /*#__PURE__*/_react["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: employeeEmail,
+    onChange: function onChange(e) {
+      setEmployeeEmail(e.target.value);
+    }
+  })), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", null, "Salary"), /*#__PURE__*/_react["default"].createElement("input", {
+    type: "text",
+    className: "form-control",
+    value: employeeSalary,
+    onChange: function onChange(e) {
+      setEmployeeSalary(e.target.value);
+    }
+  })), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("button", {
+    className: "btn btn-primary",
+    onClick: addEmployee
+  }, "Add Employee"))), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "panel panel-default"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "panel-heading"
+  }, /*#__PURE__*/_react["default"].createElement("h4", null, "Employee List")), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "panel-body"
+  }, /*#__PURE__*/_react["default"].createElement("table", {
+    className: "table table-bordered"
+  }, /*#__PURE__*/_react["default"].createElement("thead", null, /*#__PURE__*/_react["default"].createElement("tr", null, /*#__PURE__*/_react["default"].createElement("th", null, "ID"), /*#__PURE__*/_react["default"].createElement("th", null, "Name"), /*#__PURE__*/_react["default"].createElement("th", null, "Email"), /*#__PURE__*/_react["default"].createElement("th", null, "Salary"))), /*#__PURE__*/_react["default"].createElement("tbody", null, loadEmployees())), /*#__PURE__*/_react["default"].createElement("hr", null), /*#__PURE__*/_react["default"].createElement("h4", null, "Total salary: ", employeeStore.totalSalary))));
+}
+;
+
+},{"./EmployeeContext.jsx":50,"mobx-react-lite":2,"react":23}],50:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+var EmployeeContext = /*#__PURE__*/_react["default"].createContext();
+var _default = exports["default"] = EmployeeContext;
+
+},{"react":23}],51:[function(require,module,exports){
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports["default"] = ChildApp01;
 var _react = _interopRequireWildcard(require("react"));
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
@@ -67795,7 +67923,7 @@ function ChildApp01(_ref) {
   }));
 }
 
-},{"react":23}],50:[function(require,module,exports){
+},{"react":23}],52:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -67833,7 +67961,7 @@ function ParentApp01() {
   })));
 }
 
-},{"./ChildApp01.jsx":49,"react":23}],51:[function(require,module,exports){
+},{"./ChildApp01.jsx":51,"react":23}],53:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -67879,7 +68007,7 @@ function ChildComp02(_ref) {
   })));
 }
 
-},{"react":23}],52:[function(require,module,exports){
+},{"react":23}],54:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -67914,7 +68042,7 @@ function ParentComp02() {
   }));
 }
 
-},{"./ChildComponent02.jsx":51,"react":23}],53:[function(require,module,exports){
+},{"./ChildComponent02.jsx":53,"react":23}],55:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -67992,7 +68120,7 @@ function ClickComponent01() {
   }, "Reset"), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("h1", null, countObj.count)));
 }
 
-},{"react":23}],54:[function(require,module,exports){
+},{"react":23}],56:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -68046,7 +68174,7 @@ var EmployeeStore = /*#__PURE__*/function () {
 var store = new EmployeeStore();
 var _default = exports["default"] = store;
 
-},{"mobx":8}],55:[function(require,module,exports){
+},{"mobx":8}],57:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -68056,7 +68184,7 @@ exports.UserContext = void 0;
 var _react = require("react");
 var UserContext = exports.UserContext = /*#__PURE__*/(0, _react.createContext)();
 
-},{"react":23}],56:[function(require,module,exports){
+},{"react":23}],58:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -68111,7 +68239,7 @@ function Product() {
   })))));
 }
 
-},{"react":23}],57:[function(require,module,exports){
+},{"react":23}],59:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -68159,7 +68287,7 @@ function Product() {
   })))));
 }
 
-},{"react":23}],58:[function(require,module,exports){
+},{"react":23}],60:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -68260,7 +68388,7 @@ function Product() {
   })))));
 }
 
-},{"react":23}],59:[function(require,module,exports){
+},{"react":23}],61:[function(require,module,exports){
 'use strict';
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }

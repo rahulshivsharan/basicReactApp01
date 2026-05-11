@@ -23,6 +23,8 @@ import ProdcutTestApp03 from "./test/Product03.jsx";
 import * as MobxReact from 'mobx-react';
 import EmployeeStoreForMobx01 from './stores/EmployeeStore.jsx';
 import EmployeeComponentMobx01 from './mobx01/EmployeeComponentMobx01.jsx';
+import EmployeeContextMobx02 from './mobx02/EmployeeContext.jsx';
+import EmployeeComponentMobx02 from './mobx02/EmployeeComponentMobx02.jsx';
 
 export default function App(){
 	console.log("App rendering");
@@ -119,6 +121,11 @@ export default function App(){
 											<Link to="/mobx01">Mobx Store example 01</Link>
 										</td>
 									</tr>
+									<tr>										
+										<td>
+											<Link to="/mobx02">Mobx Store example 02</Link>
+										</td>
+									</tr>
 								</table>							
 							</div>
 						</div>						
@@ -149,6 +156,11 @@ export default function App(){
 								<MobxReact.Provider employeeInstance={EmployeeStoreForMobx01}>									
 									<EmployeeComponentMobx01 />	
 								</MobxReact.Provider>					
+							} />
+							<Route path="/mobx02" element={
+								<EmployeeContextMobx02.Provider value={EmployeeStoreForMobx01}>									
+									<EmployeeComponentMobx02 />
+								</EmployeeContextMobx02.Provider>								
 							} />
 						</Routes>
 					</div>
